@@ -6,12 +6,9 @@ const followerSchema = new mongoose.Schema(
       type: mongoose.Schema.Types.ObjectId,
       ref: "Users",
     },
-    followingUserId: {
+    followerUserId: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "Users",
-    },
-    comment: {
-      type: String,
     },
     createdAt: {
       type: Date,

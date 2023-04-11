@@ -1,4 +1,3 @@
-const { string } = require("joi");
 const mongoose = require("mongoose");
 
 const userSchema = new mongoose.Schema(
@@ -25,6 +24,24 @@ const userSchema = new mongoose.Schema(
     profilePic: {
       type: String,
     },
+    postsList: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Posts",
+      },
+    ],
+    followersList: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Users",
+      },
+    ],
+    followingList: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Users",
+      },
+    ],
     createdAt: {
       type: Date,
       default: Date.now(),
