@@ -43,6 +43,14 @@ app.get("/heartbeat", function (req, res) {
   });
 });
 
+app.use("/api/auth", require("./routes/authRoutes"));
+app.use("/api/users", require("./routes/userRoutes"));
+app.use("/api/users/:userId/follow", require("./routes/followRoutes"));
+app.use("/api/posts", require("./routes/postRoutes"));
+app.use("/api/posts/:postId/likes", require("./routes/likeRoutes"));
+app.use("/api/posts/:postId/comments", require("./routes/commentRoutes"));
+app.use("/api/notifications", require("./routes/notificationRoutes"));
+
 //all invalid urls handled here
 app.all("*", (req, res, next) => {
   next(
